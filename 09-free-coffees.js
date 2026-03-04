@@ -4,11 +4,26 @@
 // input 213 -> 248 
 
 function totalCups(n) {
+    // validate that n is not undefined or null
+    if (!n) {
+        throw new Error("Input cannot be empty")
+    }
+    
+    // if n is not a number, throw an error
+    if (isNaN(n)) {
+        throw new Error("Input must be a number")
+    }
+
+    // n cannot be less than 0
+    if (n < 0) {
+        throw new Error("Input cannot be less than 0")
+    }
+
     // for every 6 cups we buy, we get a 7th free
     const div = n / 6
 
-    // return Math.trunc(div + n)
-    return 0
+    return Math.trunc(div + n)
+    // return 0
 }
 
 module.exports = totalCups
